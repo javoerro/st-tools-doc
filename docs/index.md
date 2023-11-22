@@ -1,11 +1,17 @@
-# Obsidian Notes
+**[[1. Conexión USB a Gateway]]**
 
-Publish your public notes with MkDocs
+**[[2. Grabación de Firmware]]**
 
-## Hello World!
+**[[3. Marcadores de Progreso]]**
 
-The `index.md` in the `/docs` folder is the homepage you see here.
+**[[4. Diagnóstico Inicial]]**
 
-The folders in `/docs` appear as the main sections on the navigation bar.
+**[[5. Diagnóstico Avanzado]]**
 
-The notes appear as pages within these sections. For example, [[Note 1]] in `Topic 1`
+**[[6. Aprovisionamiento]]**
+
+### **Appendix**
+
+**[[Habilitar servicio SSH]]**
+
+**[[Alta de claves SSH en GitHub]]**
