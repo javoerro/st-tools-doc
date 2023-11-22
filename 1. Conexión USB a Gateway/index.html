@@ -1,0 +1,605 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../2.%20Grabaci%C3%B3n%20de%20Firmware/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>1. Conexión USB a Gateway - st-tools-doc > telemetria-formosa</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#instrucciones-para-la-conexion-al-gateway" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="st-tools-doc &gt; telemetria-formosa" class="md-header__button md-logo" aria-label="st-tools-doc > telemetria-formosa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            st-tools-doc > telemetria-formosa
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Conexión USB a Gateway
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="dark-purple" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="st-tools-doc &gt; telemetria-formosa" class="md-nav__button md-logo" aria-label="st-tools-doc > telemetria-formosa" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    st-tools-doc > telemetria-formosa
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Conexión USB a Gateway
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Conexión USB a Gateway
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-para-la-conexion-al-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones para la Conexión al Gateway
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-para-establecer-la-conexion-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones para Establecer la Conexión de Datos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Grabaci%C3%B3n%20de%20Firmware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Grabación de Firmware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Marcadores%20de%20Progreso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Marcadores de Progreso
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Diagn%C3%B3stico%20Inicial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Diagnóstico Inicial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.%20Diagn%C3%B3stico%20Avanzado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Diagnóstico Avanzado
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.%20Aprovisionamiento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Aprovisionamiento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Alta%20de%20claves%20SSH%20en%20GitHub/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alta de claves SSH en GitHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Habilitar%20servicio%20SSH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Habilitar servicio SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-para-la-conexion-al-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones para la Conexión al Gateway
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-para-establecer-la-conexion-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones para Establecer la Conexión de Datos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>1. Conexión USB a Gateway</h1>
+
+<h3 id="instrucciones-para-la-conexion-al-gateway"><strong>Instrucciones para la Conexión al Gateway</strong><a class="headerlink" href="#instrucciones-para-la-conexion-al-gateway" title="Permanent link">&para;</a></h3>
+<p><strong>Paso 1: Desconectar la Alimentación del Gateway</strong> 
+- Antes de comenzar cualquier tarea, asegúrate de que el gateway esté completamente desconectado de la alimentación de línea. Esto es esencial para garantizar la seguridad durante el procedimiento.</p>
+<p><strong>Paso 2: Preparación del Espacio de Trabajo</strong> 
+- Coloca el dispositivo gateway en un lugar cómodo para trabajar. Se recomienda hacerlo en un área donde haya suficiente espacio para maniobrar y realizar las conexiones. Si es posible, deja la antena del equipo en su posición original.</p>
+<p><strong>Paso 3: Apertura de la Envoltura Estanca</strong> 
+- El gateway está protegido por una envoltura estanca que se sella mediante cuatro tornillos. Utiliza una herramienta adecuada para desatornillar los cuatro tornillos con cuidado. Esto permitirá acceder al interior del dispositivo.</p>
+<p><strong>Paso 4: Desconexión del Conector de Batería</strong> 
+- Ubica el conector de batería en el interior del gateway. Este conector está claramente identificado con la etiqueta "BAT". Desconecta este conector para evitar que la batería suministre energía durante el procedimiento.</p>
+<p><img alt="34b7fd6a-461f-4683-b1d5-0430f46bbc92.jpg" src="../src/34b7fd6a-461f-4683-b1d5-0430f46bbc92.jpg" /></p>
+<p><strong>Paso 5: Conexión del Cable Adaptador USB</strong> 
+- En uno de los extremos de la placa del gateway, encontrarás el conector de datos. Este conector es polarizado, lo que significa que solo puede conectarse en una dirección. Asegúrate de que el cable adaptador USB esté orientado correctamente y conéctalo firmemente al conector de datos.</p>
+<p><img alt="0c88bb2e-2e49-4959-ac82-af496e76f972.jpg" src="../src/0c88bb2e-2e49-4959-ac82-af496e76f972.jpg" /></p>
+<p><strong>Paso 6: Conexión del Extremo USB al Laptop</strong> 
+- En el extremo opuesto del cable adaptador USB, encontrarás el conector USB estándar. Conecta este extremo del cable a la laptop que utilizarás para la recopilación de datos. Asegúrate de que la conexión USB esté firme.</p>
+<p>Con estos pasos completados, el gateway está listo para continuar con las siguientes fases del procedimiento.</p>
+<h3 id="instrucciones-para-establecer-la-conexion-de-datos"><strong>Instrucciones para Establecer la Conexión de Datos</strong><a class="headerlink" href="#instrucciones-para-establecer-la-conexion-de-datos" title="Permanent link">&para;</a></h3>
+<p><strong>Paso 1: Identificar el Número del Puerto COM</strong>   ^60d1cb
+- Desenchufa el conector USB del adaptador de la laptop si aún está conectado. 
+- En tu laptop con Windows 10, abre la configuración. 
+- En la barra de búsqueda de la configuración, escribe "Administrador de Dispositivos" y selecciónalo cuando aparezca en los resultados. 
+- En el Administrador de Dispositivos, busca la sección "Puertos (COM y LPT)". Si esta sección ya existe, toma nota de los elementos que contiene, ya que al volver a conectar el adaptador a la laptop, aparecerá un nuevo elemento que indicará el puerto COM del bridge serie/USB con el que vamos a trabajar. 
+- Si la sección "Puertos (COM y LPT)" no existe, esta sección se creará automáticamente cuando vuelvas a conectar el adaptador USB. 
+- Conecta nuevamente el adaptador USB a la laptop. 
+- Busca y ubica el dispositivo nuevo que aparece en la sección "Puertos (COM y LPT)". Debería mostrar un nombre como "Silicon Labs CP210x" o "USB-SERIAL CH340" seguido de un número entre paréntesis, como "(COM#)". Toma nota de ese número COM, ya que lo necesitarás en el siguiente paso.</p>
+<p><img alt="7fba34d6-20e1-4f3b-8d0c-9a8e20ed8f31.jpg" src="../src/7fba34d6-20e1-4f3b-8d0c-9a8e20ed8f31.jpg" /></p>
+<p><strong>Paso 2: Abrir el Puerto COM</strong><br />
+- Ahora que has identificado el número del puerto COM, es hora de abrirlo para establecer la comunicación con el gateway. 
+- Dependiendo de la tarea encargada, puedes abrir el programa Termite para realizar un <a href="../4.%20Diagn%C3%B3stico%20Inicial/">diagnóstico inicial</a> o puedes abrir alguna herramienta como la de <a href="../2.%20Grabaci%C3%B3n%20de%20Firmware/">grabación de firmware</a> o <a href="../6.%20Aprovisionamiento/">aprovisionamiento</a>.
+- En Termite, dirígete al botón <code>settings</code>. Asegúrate de que los siguientes parámetros estén configurados:
+    - En <code>port</code> elije el numero que encontrado en el administrador de dispositivos al conectar el adaptador.
+    - Los otros parámetros como bits de datos, paridad, bits de parada y control de flujo deben dejarse en su configuración predeterminada (aunque difieran de la imagen de abajo). 
+    - Al cerrar la ventana de "settings" con el botón OK se establecerá la conexión automáticamente. Esto lo puedes verificar al observar el texto del botón mas largo de arriba a la izquierda, debería indicar el puerto COM que configuraste en lugar de decir "disconnected".</p>
+<p><img alt="63f0cf3c-9a2d-47d7-a1e6-87f6fb9b1b0a.jpg" src="../src/63f0cf3c-9a2d-47d7-a1e6-87f6fb9b1b0a.jpg" /></p>
+<ul>
+<li>Si vas a utilizar alguna herramienta, esta te solicitara que ingreses el numero de puerto encontrado</li>
+</ul>
+<p><img alt="91e4f4d3-ae7d-4d88-9e32-708cb47e989f.png" src="../src/91e4f4d3-ae7d-4d88-9e32-708cb47e989f.png" /></p>
+<p><strong>Paso 3: Conectar la Alimentación de Línea</strong><br />
+- Con el puerto COM abierto en Termite o la herramienta de firmware, enchufa la alimentación de línea al gateway. 
+- Después de unos segundos, deberías ver como tu programa se comunica con el dispositivo.
+- Si no conecta o hay un error, se manifestará de forma distinta de acuerdo al procedimiento que estés siguiendo: En Termite, la ventana de impresiones permanecerá en blanco. Sin embargo, en las herramientas te encontrarás con la siguiente situación:</p>
+<p><img alt="03ca7db6-6dfc-47d2-9d49-72fbcda8054e.png" src="../src/03ca7db6-6dfc-47d2-9d49-72fbcda8054e.png" /></p>
+<p>En ambos casos es preciso verificar la alimentación del gateway y la integridad de la conexión entre el conector de datos y el adaptador USB.</p>
+<p>Con estos pasos completados, has establecido con éxito la conexión de datos entre el gateway y la laptop. Ahora puedes proceder con la <a href="../4.%20Diagn%C3%B3stico%20Inicial/">recopilación de información y diagnóstico necesario</a>, <a href="../2.%20Grabaci%C3%B3n%20de%20Firmware/">grabación de firmware</a> o <a href="../6.%20Aprovisionamiento/">aprovisionamiento</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
